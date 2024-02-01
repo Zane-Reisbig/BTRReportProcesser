@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="BTRReportProcesser.WorkPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BTRReportProcesser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#232c34" Width="800" Height="600">
+    <Grid>
+
+        <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="165" Margin="32,27,0,0"/>
+        <TextBlock x:Name="ConsoleOutput" HorizontalAlignment="Left" TextWrapping="Wrap" Text="DebugOut" VerticalAlignment="Top" Height="590" Width="193"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="145,140,0,0" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Country_ComboBox" Margin="140,160,0,0" Width="120" PointerExited="MouseLeave_ComboBox"/>
+        <Button x:Name="Country_Reset_Button" Margin="140,190,0,0" VerticalAlignment="Top" Width="91" Click="Country_Reset_Button_Click">Clear Value</Button>
+
+        <TextBlock HorizontalAlignment="Left" Margin="285,140,0,0" TextWrapping="Wrap" Text="Practitoner" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Practitoner_ComboBox" Margin="280,160,0,0" Width="120" PointerExited="MouseLeave_ComboBox"/>
+        <Button x:Name="Practitoner_Reset_Button" Margin="280,190,0,0" VerticalAlignment="Top" Width="91" Click="Practitoner_Reset_Button_Click">Clear Value</Button>
+
+        <TextBlock HorizontalAlignment="Left" Margin="425,140,0,0" TextWrapping="Wrap" Text="Patient #" VerticalAlignment="Top"/>
+        <ComboBox x:Name="PNumber_ComboBox" Margin="420,160,0,0" Width="120" PointerExited="MouseLeave_ComboBox"/>
+        <Button x:Name="PNumber_Reset_Button" Margin="420,190,0,0" VerticalAlignment="Top" Width="91" Click="PNumber_Reset_Button_Click">Clear Value</Button>
+
+        <TextBlock HorizontalAlignment="Left" Margin="565,140,0,0" TextWrapping="Wrap" Text="Site Id" VerticalAlignment="Top"/>
+        <ComboBox x:Name="SiteId_ComboBox" Margin="560,160,0,0" Width="120" PointerExited="MouseLeave_ComboBox"/>
+        <Button x:Name="SiteId_Reset_Button" Margin="560,190,0,0" VerticalAlignment="Top" Width="91" Click="SiteId_Reset_Button_Click">Clear Value</Button>
+        <Button x:Name="Refresh_Controls_Button" Content="Refresh Stuck Values" Margin="523,70,0,0" VerticalAlignment="Top" Width="157" Click="Refresh_Controls_Button_Click"/>
+
+
+    </Grid>
+
+</Page>

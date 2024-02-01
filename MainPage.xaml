@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="BTRReportProcesser.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BTRReportProcesser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#232c34" Width="800" Height="600">
+
+    <Grid>
+        <TextBlock x:Name="ConsoleOutput" TextWrapping="Wrap" Text="Ball" FontFamily="Calibri" FontSize="24" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="504" Width="267"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Drop an Excel File to Continue" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,66,0,0"/>
+
+        <Grid x:Name="DroppableGrid" AllowDrop="True" DragOver="Grid_DragOver" Drop="Grid_Drop" 
+              Background="LightBlue" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Height="97">Drop anywhere in the blue area</TextBlock>
+        </Grid>
+        <TextBlock x:Name="GotFileConf" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Margin="0,150,0,0"/>
+
+        <Button x:Name="ContinueButton" Content="Continue" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="63" Width="184" Click="ContinueButton_Click" Margin="0,0,0,68" IsEnabled="False"/>
+    </Grid>
+</Page>
