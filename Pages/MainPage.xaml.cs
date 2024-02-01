@@ -27,7 +27,7 @@ namespace BTRReportProcesser
     public sealed partial class MainPage : Page
     {
         public Size WINDOW_SIZE = new Size(800, 600);
-        private bool isDebug = true;
+        private bool isDebug = false;
 
         public DebugConsole I_Console;
         public StorageFile MyExcelFile;
@@ -42,18 +42,14 @@ namespace BTRReportProcesser
             ApplicationView.PreferredLaunchViewSize = WINDOW_SIZE;
             Window.Current.CoreWindow.SizeChanged += (s, e) => { ApplicationView.GetForCurrentView().TryResizeView(WINDOW_SIZE); };
 
-            if (isDebug)
-            {
-                this.I_Console = new DebugConsole(ConsoleOutput);
-                this.I_Console.maxCharsTillClear = 50;
-            }
+            // Good lord make sure the frame isnt null before acting on it
+            // not a problem in x32 but in x64 somereason its borked
+            // So now we init the stuff on page loaded instead of page init
+            this.Loaded += Async_Init;
 
-
-            Async_Init();
-            this.Loaded += Page_Loaded;
         }
 
-        private async void Async_Init()
+        private async void Async_Init(object sender, object e)
         {
             if (isDebug)
             {
@@ -64,26 +60,7 @@ namespace BTRReportProcesser
 
             }
 
-
-
         }
-
-
-        private void Page_Loaded(object sender, object e)
-        {
-
-           // //  DispatcherTimer setup
-           //I_Timer = new DispatcherTimer();
-           //I_Timer.Tick += I_Timer_Tick;
-           //I_Timer.Interval = TimeSpan.FromSeconds(1);
-           //I_Timer.Start();
-
-        }
-
-        //public void I_Timer_Tick(object sender, object e)
-        //{
-        //    I_Console.Println("Hello World!");   
-        //}
 
         private void Grid_DragOver(object sender, DragEventArgs e)
         {
