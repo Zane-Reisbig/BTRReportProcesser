@@ -14,19 +14,19 @@
 
         <TextBlock HorizontalAlignment="Left" Margin="145,140,0,0" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top"/>
         <ComboBox x:Name="Country_ComboBox" Margin="140,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
-        <Button x:Name="Country_Reset_Button" Width="91" Click="Country_Reset_Button_Click" Margin="140,190,0,0" VerticalAlignment="Top">Clear Value</Button>
+        <Button x:Name="Country_Reset_Button" Width="91" Margin="140,190,0,0" VerticalAlignment="Top" Click="Reset_ComboBoxes" Tag="Country_ComboBox">Clear Value</Button>
 
         <TextBlock HorizontalAlignment="Left" Margin="285,140,0,0" TextWrapping="Wrap" Text="Practitoner" VerticalAlignment="Top"/>
         <ComboBox x:Name="Practitoner_ComboBox" Margin="280,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
-        <Button x:Name="Practitoner_Reset_Button" Margin="280,190,0,0" VerticalAlignment="Top" Width="91" Click="Practitoner_Reset_Button_Click">Clear Value</Button>
+        <Button x:Name="Practitoner_Reset_Button" Margin="280,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="Practitoner_ComboBox">Clear Value</Button>
 
         <TextBlock HorizontalAlignment="Left" Margin="425,140,0,0" TextWrapping="Wrap" Text="Patient #" VerticalAlignment="Top"/>
         <ComboBox x:Name="PNumber_ComboBox" Margin="420,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
-        <Button x:Name="PNumber_Reset_Button" Margin="420,190,0,0" VerticalAlignment="Top" Width="91" Click="PNumber_Reset_Button_Click">Clear Value</Button>
+        <Button x:Name="PNumber_Reset_Button" Margin="420,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="PNumber_ComboBox">Clear Value</Button>
 
         <TextBlock HorizontalAlignment="Left" Margin="565,140,0,0" TextWrapping="Wrap" Text="Site Id" VerticalAlignment="Top"/>
         <ComboBox x:Name="SiteId_ComboBox" Margin="560,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
-        <Button x:Name="SiteId_Reset_Button" Margin="560,190,0,0" VerticalAlignment="Top" Width="91" Click="SiteId_Reset_Button_Click">Clear Value</Button>
+        <Button x:Name="SiteId_Reset_Button" Margin="560,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="SiteId_ComboBox">Clear Value</Button>
 
 
 

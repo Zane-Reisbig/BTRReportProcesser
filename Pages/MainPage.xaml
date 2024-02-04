@@ -10,14 +10,16 @@
 
     <Grid>
 
-        <TextBlock TextWrapping="Wrap" Text="Drop an Excel File to Continue" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,66,0,0"/>
+        <TextBlock TextWrapping="Wrap" Text="Drop an Excel File to Continue" FontSize="36" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,77,0,0" Height="68" Width="492"/>
 
         <Grid x:Name="DroppableGrid" AllowDrop="True" DragOver="Grid_DragOver" Drop="Grid_Drop" 
-              Background="LightBlue" HorizontalAlignment="Center" VerticalAlignment="Center">
+              Background="LightBlue" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Height="131" Width="279">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Height="97">Drop anywhere in the blue area</TextBlock>
         </Grid>
         <TextBlock x:Name="GotFileConf" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Margin="0,150,0,0"/>
 
         <Button x:Name="ContinueButton" Content="Continue" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="63" Width="184" Click="ContinueButton_Click" Margin="0,0,0,68" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" Margin="381,140,0,0" TextWrapping="Wrap" Text="↓" VerticalAlignment="Top" Height="60" Width="81" FontSize="48"/>
+        <CheckBox Content="Use Last Document" Margin="308,432,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
     </Grid>
 </Page>

@@ -3,15 +3,10 @@ using ExcelDataReader;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
@@ -25,9 +20,6 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BTRReportProcesser
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class WorkPage : Page
     {
         const int HEADER_ROW = 10;
@@ -36,7 +28,6 @@ namespace BTRReportProcesser
         StorageFile myFile;
 
         EnumerableRowCollection<DataRow> QueryableLinqLines;
-        DebugConsole I_Console;
 
         public WorkPage()
         {
@@ -44,28 +35,19 @@ namespace BTRReportProcesser
             myFile = null;
 
             this.InitializeComponent();
-            //I_Console = new DebugConsole(ConsoleOutput);
         }
 
         // Surgery Last Tuesday
         // Wendsday 7th a 4:15 PM
 
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             myFile = (StorageFile)e.Parameter;
-
-            // Call Main so we can get async function
-            Main();
-        }
-
-        public async void Main()
-        {
 
             // Make sure to await async. This function sets -
             // critical variable "sheet" and allows us to actually -
             // do some work in this thing.
-
             await ReadInFile(null, null);
             InitControls();
         }
@@ -81,20 +63,22 @@ namespace BTRReportProcesser
         {
             if (sheet == null) return;
 
-            String hold1 = Country_ComboBox.SelectedValue as String;
-            String hold2 = Practitoner_ComboBox.SelectedValue as String;
-            String hold3 = PNumber_ComboBox.SelectedValue as String;
-            String hold4 = SiteId_ComboBox.SelectedValue as String;
+            String CountrBoxValue = Country_ComboBox.SelectedValue as String;
+            String PractiBoxValue = Practitoner_ComboBox.SelectedValue as String;
+            String PNumbeBoxValue = PNumber_ComboBox.SelectedValue as String;
+            String SiteIdBoxValue = SiteId_ComboBox.SelectedValue as String;
 
             QueryableLinqLines = sheet.Tables[0].AsEnumerable()
             .Where((row) =>
             {
-                var x = row["Country"];
 
-                if (row["Country"] == (hold1 == null ? row["Country"] : hold1) &&
-                    row["PI Name"] == (hold2 == null ? row["PI Name"] : hold2) &&
-                    row["Patient Number"] == (hold3 == null ? row["Patient Number"] : hold3) &&
-                    row["Site ID"] == (hold4 == null ? row["Site ID"] : hold4)) return true;
+                if (row["Country"]        == (CountrBoxValue == null ? row["Country"] : CountrBoxValue) &&
+                    row["PI Name"]        == (PractiBoxValue == null ? row["PI Name"] : PractiBoxValue) &&
+                    row["Patient Number"] == (PNumbeBoxValue == null ? row["Patient Number"] : PNumbeBoxValue) &&
+                    row["Site ID"]        == (SiteIdBoxValue == null ? row["Site ID"] : SiteIdBoxValue))
+                {
+                    return true;
+                }
 
                 return false;
             });
@@ -104,10 +88,10 @@ namespace BTRReportProcesser
             PNumber_ComboBox.ItemsSource = QueryableLinqLines.Select(row => row["Patient Number"].ToString()).Distinct().ToList();
             SiteId_ComboBox.ItemsSource = QueryableLinqLines.Select(row => row["Site ID"].ToString()).Distinct().ToList();
 
-            Country_ComboBox.SelectedValue = hold1;
-            Practitoner_ComboBox.SelectedValue = hold2;
-            PNumber_ComboBox.SelectedValue = hold3;
-            SiteId_ComboBox.SelectedValue = hold4;
+            Country_ComboBox.SelectedValue = CountrBoxValue;
+            Practitoner_ComboBox.SelectedValue = PractiBoxValue;
+            PNumber_ComboBox.SelectedValue = PNumbeBoxValue;
+            SiteId_ComboBox.SelectedValue = SiteIdBoxValue;
         }
 
         public async Task ReadInFile(object s, object e)
@@ -141,6 +125,13 @@ namespace BTRReportProcesser
                 }
             }
 
+        }
+        
+        private void Reset_ComboBoxes(object sender, RoutedEventArgs e)
+        {
+            ComboBox sender_parent = this.FindName((sender as Button).Tag as string) as ComboBox;
+            sender_parent.SelectedValue = null;
+            sender_parent.SelectedIndex = -1;
         }
 
         private void SiteId_Reset_Button_Click(object sender, RoutedEventArgs e)
