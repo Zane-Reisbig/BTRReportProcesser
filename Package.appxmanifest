@@ -7,18 +7,18 @@
   xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
   xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
   xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
-  IgnorableNamespaces="uap mp iot uap3 uap4">
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap mp iot uap3 uap4 rescap">
 
   <Identity
-    Name="9f07596b-b4bf-466d-8190-b6af44c3c7b8"
     Publisher="CN=zaned"
-    Version="1.0.0.0" />
+    Version="1.0.0.0"  Name="BTRReportProcesserPackage"/>
 
   <mp:PhoneIdentity PhoneProductId="9f07596b-b4bf-466d-8190-b6af44c3c7b8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>BTRReportProcesser</DisplayName>
-    <PublisherDisplayName>zaned</PublisherDisplayName>
+    <PublisherDisplayName>ReisbigLLC</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -51,6 +51,7 @@
     <iot:Capability Name="systemManagement"/>
     <Capability Name="internetClientServer"/>
     <Capability Name="internetClient"/>
+    <rescap:Capability Name="broadFileSystemAccess" />
     <uap3:Capability Name="remoteSystem"/>
     <uap4:Capability Name="userDataTasks"/></Capabilities>
 </Package>

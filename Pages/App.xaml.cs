@@ -19,6 +19,7 @@ namespace BTRReportProcesser
 {
     sealed partial class App : Application
     {
+
         public App()
         {
             this.InitializeComponent();
@@ -57,5 +58,4 @@ namespace BTRReportProcesser
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
     }
-
 }

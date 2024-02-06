@@ -5,39 +5,51 @@
     xmlns:local="using:BTRReportProcesser"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="#232c34" Width="800" Height="600">
+    mc:Ignorable="d" Background="#232c34" Width="800" Height="600">
     <Grid>
 
-        <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="165" Margin="32,27,0,0"/>
         <Button x:Name="Refresh_Controls_Button" Content="Refresh Stuck Values" Margin="523,70,0,0" VerticalAlignment="Top" Width="157" Click="Refresh_Controls_Button_Click"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="145,140,0,0" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top"/>
         <ComboBox x:Name="Country_ComboBox" Margin="140,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
         <Button x:Name="Country_Reset_Button" Width="91" Margin="140,190,0,0" VerticalAlignment="Top" Click="Reset_ComboBoxes" Tag="Country_ComboBox">Clear Value</Button>
 
-        <TextBlock HorizontalAlignment="Left" Margin="285,140,0,0" TextWrapping="Wrap" Text="Practitoner" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Practitoner_ComboBox" Margin="280,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
-        <Button x:Name="Practitoner_Reset_Button" Margin="280,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="Practitoner_ComboBox">Clear Value</Button>
+        <TextBlock HorizontalAlignment="Left" Margin="429,140,0,0" TextWrapping="Wrap" Text="Practitoner" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Practitoner_ComboBox" Margin="424,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
+        <Button x:Name="Practitoner_Reset_Button" Margin="424,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="Practitoner_ComboBox">Clear Value</Button>
 
-        <TextBlock HorizontalAlignment="Left" Margin="425,140,0,0" TextWrapping="Wrap" Text="Patient #" VerticalAlignment="Top"/>
-        <ComboBox x:Name="PNumber_ComboBox" Margin="420,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
-        <Button x:Name="PNumber_Reset_Button" Margin="420,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="PNumber_ComboBox">Clear Value</Button>
+        <TextBlock HorizontalAlignment="Left" Margin="565,140,0,0" TextWrapping="Wrap" Text="Patient #" VerticalAlignment="Top"/>
+        <ComboBox x:Name="PNumber_ComboBox" Margin="560,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
+        <Button x:Name="PNumber_Reset_Button" Margin="560,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="PNumber_ComboBox">Clear Value</Button>
 
-        <TextBlock HorizontalAlignment="Left" Margin="565,140,0,0" TextWrapping="Wrap" Text="Site Id" VerticalAlignment="Top"/>
-        <ComboBox x:Name="SiteId_ComboBox" Margin="560,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
-        <Button x:Name="SiteId_Reset_Button" Margin="560,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="SiteId_ComboBox">Clear Value</Button>
+        <TextBlock HorizontalAlignment="Left" Margin="282,140,0,0" TextWrapping="Wrap" Text="Site Id" VerticalAlignment="Top"/>
+        <ComboBox x:Name="SiteId_ComboBox" Margin="277,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
+        <Button x:Name="SiteId_Reset_Button" Margin="277,190,0,0" VerticalAlignment="Top" Width="91" Click="Reset_ComboBoxes" Tag="SiteId_ComboBox">Clear Value</Button>
 
 
 
-        <Button x:Name="ExportData_Button" Content="Export Data" VerticalAlignment="Bottom" Width="161" HorizontalAlignment="Center" Margin="0,0,0,200" Click="ExportData_Button_Click"/>
+        <Button x:Name="ExportData_Button" Content="Export Data" VerticalAlignment="Top" Width="175" HorizontalAlignment="Center" Margin="0,369,0,0" Click="ExportData_Button_Click"/>
         <CheckBox x:Name="ProcessComments_Toggle" Content="Process Comments" Margin="505,369,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <TextBlock HorizontalAlignment="Left" Height="0" Margin="115,190,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="0"/>
 
-        <AppBarToggleButton x:Name="FileOutType_Toggle" Icon="OpenFile" Label="Exporting" Margin="0,405,0,0" Width="162" HorizontalAlignment="Center" IsChecked="True" PointerEntered="FileOutType_Toggle_PointerEntered" Click="FileOutType_Toggle_Click" PointerExited="Hiding_Rectangle_PointerExited"/>
-        <TextBlock x:Name="Toggle_Text" HorizontalAlignment="Center" Margin="0,466,0,0" TextWrapping="Wrap" Text="Exporting to New File" VerticalAlignment="Top"/>
-        <Rectangle x:Name="Hiding_Rectangle" HorizontalAlignment="Center" Height="35" Margin="0,461,0,0" Stroke="#99FFFFFF" VerticalAlignment="Top" Width="200" Fill="#FF232C34" FocusVisualPrimaryBrush="#99FFFFFF" StrokeThickness="0"/>
+        <Grid x:Name="Fade_Grid" PointerExited="FileOutType_Toggle_PointerExited" PointerEntered="FileOutType_Toggle_PointerEntered" FocusVisualPrimaryBrush="#99FFFFFF" Margin="301,419,305,97">
+            <AppBarToggleButton x:Name="FileOutType_Toggle" Icon="OpenFile" Label="Exporting" Width="162" HorizontalAlignment="Center" IsChecked="True" Click="FileOutType_Toggle_Click" ToolTipService.ToolTip="Change Mode"/>
+            <TextBlock x:Name="Toggle_Text" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Exporting to New File" VerticalAlignment="Top" Margin="0,61,0,0"/>
 
+            <Grid.Resources>
+                <Storyboard x:Name="EnterStoryboard">
+                    <FadeInThemeAnimation Storyboard.TargetName="Toggle_Text" />
+                </Storyboard>
+                <Storyboard x:Name="ExitStoryboard">
+                    <FadeOutThemeAnimation Storyboard.TargetName="Toggle_Text" />
+                </Storyboard>
+            </Grid.Resources>
+        </Grid>
+
+        <Grid Margin="226,297,-94,211">
+            <TextBox x:Name="FileOutPath" PlaceholderText="Ouput Path" VerticalAlignment="Center" IsEnabled="False" Height="32" Margin="0,0,364,0"/>
+            <Button Margin="309,0,0,0" Height="32" Width="30" Content="..." ToolTipService.ToolTip="Select Output Path" Click="FileOutPath_DoubleTapped" />
+        </Grid>
 
     </Grid>
 

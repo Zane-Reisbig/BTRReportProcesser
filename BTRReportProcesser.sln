@@ -5,8 +5,6 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTRReportProcesser", "BTRReportProcesser.csproj", "{49C4F939-6C66-4E7E-B59E-50C7202C15B6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CB681D3E-AFD4-4328-A03F-B10B5DA7AFD2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -48,6 +46,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8694F59C-E9A1-40CB-A977-CB498656ED5F}
+		SolutionGuid = {5926A6B3-ADE4-4E96-A520-1A37D85F8A88}
 	EndGlobalSection
 EndGlobal
