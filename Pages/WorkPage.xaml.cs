@@ -91,9 +91,9 @@ namespace BTRReportProcesser
             (row) =>
             {
                 if (row["Country"]        == (CountrBoxValue == null ? row["Country"]        : CountrBoxValue) &&
-                    row["PI Name"]        == (PractiBoxValue == null ? row["PI Name"]        : PractiBoxValue) &&
-                    row["Patient Number"] == (PNumbeBoxValue == null ? row["Patient Number"] : PNumbeBoxValue) &&
-                    row["Site ID"]        == (SiteIdBoxValue == null ? row["Site ID"]        : SiteIdBoxValue))
+                    row["PI_NAME"]        == (PractiBoxValue == null ? row["PI_NAME"]        : PractiBoxValue) &&
+                    row["Subject Number"] == (PNumbeBoxValue == null ? row["Subject Number"] : PNumbeBoxValue) &&
+                    row["Site Number"]        == (SiteIdBoxValue == null ? row["Site Number"]        : SiteIdBoxValue))
                 {
                     return true;
                 }
@@ -102,9 +102,9 @@ namespace BTRReportProcesser
             });
 
             Country_ComboBox.ItemsSource       = sortedData.Select(row => row["Country"]       .ToString()).Distinct().ToList();
-            Practitoner_ComboBox.ItemsSource   = sortedData.Select(row => row["PI Name"]       .ToString()).Distinct().ToList();
-            PNumber_ComboBox.ItemsSource       = sortedData.Select(row => row["Patient Number"].ToString()).Distinct().ToList();
-            SiteId_ComboBox.ItemsSource        = sortedData.Select(row => row["Site ID"]       .ToString()).Distinct().ToList();
+            Practitoner_ComboBox.ItemsSource   = sortedData.Select(row => row["PI_NAME"]       .ToString()).Distinct().ToList();
+            PNumber_ComboBox.ItemsSource       = sortedData.Select(row => row["Subject Number"].ToString()).Distinct().ToList();
+            SiteId_ComboBox.ItemsSource        = sortedData.Select(row => row["Site Number"]       .ToString()).Distinct().ToList();
 
             Country_ComboBox.SelectedValue     = CountrBoxValue;
             Practitoner_ComboBox.SelectedValue = PractiBoxValue;
@@ -142,9 +142,9 @@ namespace BTRReportProcesser
             (row) =>
             {
                 if (row["Country"]        == (CountrBoxValue == null ? row["Country"]        : CountrBoxValue) &&
-                    row["PI Name"]        == (PractiBoxValue == null ? row["PI Name"]        : PractiBoxValue) &&
-                    row["Patient Number"] == (PNumbeBoxValue == null ? row["Patient Number"] : PNumbeBoxValue) &&
-                    row["Site ID"]        == (SiteIdBoxValue == null ? row["Site ID"]        : SiteIdBoxValue))
+                    row["PI_NAME"]        == (PractiBoxValue == null ? row["PI_NAME"]        : PractiBoxValue) &&
+                    row["Subject Number"] == (PNumbeBoxValue == null ? row["Subject Number"] : PNumbeBoxValue) &&
+                    row["Site Number"]        == (SiteIdBoxValue == null ? row["Site Number"]        : SiteIdBoxValue))
                 {
                     return true;
                 }
@@ -197,7 +197,7 @@ namespace BTRReportProcesser
             CSVOut.AppendLine();
             CSVOut.AppendLine();
             CSVOut.AppendLineFormat("Total Runtime; {0}ms", time.Elapsed);
-            CSVOut.AppendLineFormat("Checksum; {0}", System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(CSVOut.ToString())));
+            CSVOut.AppendLineFormat("Checksum;; {0}", System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(CSVOut.ToString())));
 
             if((bool) !FileOutType_Toggle.IsChecked)
             {

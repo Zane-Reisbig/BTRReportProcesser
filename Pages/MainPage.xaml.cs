@@ -83,7 +83,7 @@ namespace BTRReportProcesser
 
             // TODO: Copy last File Here
             var outFolder = await fs.RequestFolderAccess(OUT_FOLDER);
-            var lastFile  = await outFolder.CreateFileAsync(LAST_FILE_NAME);
+            var lastFile  = await outFolder.CreateFileAsync(LAST_FILE_NAME, CreationCollisionOption.ReplaceExisting);
             await MyExcelFile.CopyAndReplaceAsync(lastFile);
 
         }
@@ -100,9 +100,16 @@ namespace BTRReportProcesser
             if ((bool)((CheckBox)sender).IsChecked)
             {
                 StorageFolder backFolder = (StorageFolder)await fs.RequestFolderAccess(OUT_FOLDER);
-                MyExcelFile = await backFolder.GetFileAsync(LAST_FILE_NAME);
-                ContinueButton.IsEnabled = true;
-                return;
+                try
+                {
+                    MyExcelFile = await backFolder.GetFileAsync(LAST_FILE_NAME);
+                    ContinueButton.IsEnabled = true;
+                    return;
+                }
+                catch
+                {
+                    return;
+                }
             }
 
             MyExcelFile = null;

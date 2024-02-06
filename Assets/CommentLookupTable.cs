@@ -68,7 +68,7 @@ namespace BTRReportProcesser.Assets
 
             { "Poor subject effort (FEV1 and FVC)", "Poor subject effort" },
             { "Best FVC: Acceptable effort deselected by site (FVC)", "Bad Effort" },
-
+            {"Best FEV1: Acceptable effort deselected by site (FEV1) Poor subject effort (FEV1 and FVC)", "Bad Effort"},
             //{ "Patient CANNOT be randomized; because data does not meet the ATS/ERS criteria for acceptable data quality at screening visit.", "Bad Test" },
             //{ "Patient CANNOT be randomized, because data does not meet the ATS/ERS criteria for acceptable data quality at screening visit.", "Bad Test" },
             { "Patient CANNOT be randomized because data does not meet the ATS/ERS criteria for acceptable data quality at screening visit.", "Bad Test" },
