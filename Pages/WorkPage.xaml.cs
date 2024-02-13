@@ -17,20 +17,20 @@ using Windows.UI.Xaml.Navigation;
 
 using BTRReportProcesser.Lib;
 using BTRReportProcesser.Assets;
-using Windows.ApplicationModel;
-using System.Runtime.CompilerServices;
 using Windows.Storage.AccessCache;
-using System.Buffers.Text;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+using BTRReportProcesser.Pages;
+using Windows.ApplicationModel.Core;
 
 namespace BTRReportProcesser
 {
+
+    // TODO: LAST FILE Export
 
     public sealed partial class WorkPage : Page
     {
         private const string OUT_FOLDER = "outputFolder";
 
+        HeaderData hd;
         ExcelDataset dataset;
         FileSystem fs;
         private const bool isDebug = false;
@@ -38,20 +38,59 @@ namespace BTRReportProcesser
         public WorkPage()
         {
             dataset = null;
+            hd = null;
             this.InitializeComponent();
+            this.Loaded += (s, e) => 
+            {
+                FileOutType_Toggle.PointerEntered += (se, ev) => { Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 0); };
+                FileOutType_Toggle.PointerExited += (sen, eve) => { Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 0); };
+            };
 
         }
 
-        // Surgery Last Tuesday
-        // Wendsday 7th a 4:15 PM
-
-
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            await CreateDataset((StorageFile)e.Parameter);
-            fs = await FileSystem.CreateAsync();
-            InitControls();
+            Type source = NavigationPackage.Objects["source"] as Type;
 
+
+            if (source == typeof(MainPage))
+            {
+                try
+                {
+                    // try basic navigation
+                    hd = new HeaderData();
+                    hd.countryTag = "Country";
+                    hd.practitionerTag = "PI_NAME";
+                    hd.patientTag = "Subject Number";
+                    hd.siteTag = "Site Number";
+                    hd.commentTag = "Overread Selection Reason";
+                    hd.rowNumber = 10;
+                    dataset = await ExcelDataset.CreateAsync((StorageFile) e.Parameter, hd.rowNumber);
+                    InitControls();
+                }
+                catch
+                {
+                    Frame.Navigate(typeof(FormatWizard), (StorageFile) e.Parameter);
+                }
+            }
+
+            else if (source == typeof(FormatWizard))
+            {
+                hd = ((HeaderData) e.Parameter);
+                hd = (HeaderData) NavigationPackage.Objects["headers"];
+                StorageFile file = (StorageFile)NavigationPackage.Objects["excelFile"];
+                dataset = (await ExcelDataset.CreateAsync(file, hd.rowNumber));
+            }
+
+
+            if(dataset is null)
+            {
+                Modals.Error.ErrorOkay("Failed to create dataset");
+                throw new Exception("Dataset is Null");
+            }
+
+
+            fs = await FileSystem.CreateAsync();
             if (StorageApplicationPermissions.FutureAccessList.ContainsItem(OUT_FOLDER))
             {
                 FileOutPath.PlaceholderText = (await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(OUT_FOLDER)).Path;
@@ -61,11 +100,8 @@ namespace BTRReportProcesser
             {
                 ExportData_Button_Click(null, null);
             }
-        }
-        
-        public async Task CreateDataset(StorageFile file)
-        {
-            dataset = await ExcelDataset.CreateAsync(file);
+
+            ExitStoryboard.Begin();
         }
 
         private void ComboSelectionChanged_ComboBox(object sender, PointerRoutedEventArgs e)
@@ -77,6 +113,10 @@ namespace BTRReportProcesser
         }
         private void Refresh_Controls_Button_Click(object sender, RoutedEventArgs e)
         {
+            Reset_ComboBoxes(Country_Reset_Button, null);
+            Reset_ComboBoxes(Practitoner_Reset_Button, null);
+            Reset_ComboBoxes(PNumber_Reset_Button, null);
+            Reset_ComboBoxes(SiteId_Reset_Button, null);
             InitControls();
         }
 
@@ -90,10 +130,10 @@ namespace BTRReportProcesser
             var sortedData = dataset.EnumerableDataLines.Where(
             (row) =>
             {
-                if (row["Country"]        == (CountrBoxValue == null ? row["Country"]        : CountrBoxValue) &&
-                    row["PI_NAME"]        == (PractiBoxValue == null ? row["PI_NAME"]        : PractiBoxValue) &&
-                    row["Subject Number"] == (PNumbeBoxValue == null ? row["Subject Number"] : PNumbeBoxValue) &&
-                    row["Site Number"]        == (SiteIdBoxValue == null ? row["Site Number"]        : SiteIdBoxValue))
+                if (row[hd.countryTag]      == (CountrBoxValue == null ? row[hd.countryTag]      : CountrBoxValue) &&
+                    row[hd.practitionerTag] == (PractiBoxValue == null ? row[hd.practitionerTag] : PractiBoxValue) &&
+                    row[hd.patientTag]      == (PNumbeBoxValue == null ? row[hd.patientTag]      : PNumbeBoxValue) &&
+                    row[hd.siteTag]         == (SiteIdBoxValue == null ? row[hd.siteTag]         : SiteIdBoxValue))
                 {
                     return true;
                 }
@@ -101,10 +141,10 @@ namespace BTRReportProcesser
                 return false;
             });
 
-            Country_ComboBox.ItemsSource       = sortedData.Select(row => row["Country"]       .ToString()).Distinct().ToList();
-            Practitoner_ComboBox.ItemsSource   = sortedData.Select(row => row["PI_NAME"]       .ToString()).Distinct().ToList();
-            PNumber_ComboBox.ItemsSource       = sortedData.Select(row => row["Subject Number"].ToString()).Distinct().ToList();
-            SiteId_ComboBox.ItemsSource        = sortedData.Select(row => row["Site Number"]       .ToString()).Distinct().ToList();
+            Country_ComboBox.ItemsSource       = sortedData.Select(row => row[hd.countryTag]     .ToString()).Distinct().ToList();
+            Practitoner_ComboBox.ItemsSource   = sortedData.Select(row => row[hd.practitionerTag].ToString()).Distinct().ToList();
+            PNumber_ComboBox.ItemsSource       = sortedData.Select(row => row[hd.patientTag]     .ToString()).Distinct().ToList();
+            SiteId_ComboBox.ItemsSource        = sortedData.Select(row => row[hd.siteTag]        .ToString()).Distinct().ToList();
 
             Country_ComboBox.SelectedValue     = CountrBoxValue;
             Practitoner_ComboBox.SelectedValue = PractiBoxValue;
@@ -115,6 +155,8 @@ namespace BTRReportProcesser
         
         private void Reset_ComboBoxes(object sender, RoutedEventArgs e)
         {
+            if (sender is null) return;
+
             ComboBox sender_parent = this.FindName((sender as Button).Tag as string) as ComboBox;
             sender_parent.SelectedValue = null;
             sender_parent.SelectedIndex = -1;
@@ -131,6 +173,7 @@ namespace BTRReportProcesser
 
             SortedDictionary mappedComments = null;
             SortedDictionary countedComments = null;
+            SortedDictionary noAssociations = null;
             AdvancedStringBuilder CSVOut = new AdvancedStringBuilder(";", null);
 
             string CountrBoxValue = Country_ComboBox.SelectedValue     as string;
@@ -141,10 +184,10 @@ namespace BTRReportProcesser
             var sortedData = dataset.EnumerableDataLines.Where(
             (row) =>
             {
-                if (row["Country"]        == (CountrBoxValue == null ? row["Country"]        : CountrBoxValue) &&
-                    row["PI_NAME"]        == (PractiBoxValue == null ? row["PI_NAME"]        : PractiBoxValue) &&
-                    row["Subject Number"] == (PNumbeBoxValue == null ? row["Subject Number"] : PNumbeBoxValue) &&
-                    row["Site Number"]        == (SiteIdBoxValue == null ? row["Site Number"]        : SiteIdBoxValue))
+                if (row[hd.countryTag]      == (CountrBoxValue == null ? row[hd.countryTag]      : CountrBoxValue) &&
+                    row[hd.practitionerTag] == (PractiBoxValue == null ? row[hd.practitionerTag] : PractiBoxValue) &&
+                    row[hd.patientTag]      == (PNumbeBoxValue == null ? row[hd.patientTag]      : PNumbeBoxValue) &&
+                    row[hd.siteTag]         == (SiteIdBoxValue == null ? row[hd.siteTag]         : SiteIdBoxValue))
                 {
                     return true;
                 }
@@ -154,7 +197,7 @@ namespace BTRReportProcesser
 
             CommentManager commentManager = new CommentManager(
                 CommentLookupTable.Table,
-                sortedData.Select(row => row["Overread Selection Reason"].ToString()).ToList()
+                sortedData.Select(row => row[hd.commentTag].ToString()).ToList()
             );
 
             CSVOut.DoStringMutation = false;
@@ -191,13 +234,23 @@ namespace BTRReportProcesser
             {
                 CSVOut.AppendLine(c.key + ";" + c.value);
             }
+            CSVOut.AppendLine();
 
+            // No Associations
+            CSVOut.AppendLine("-- No Associations --");
+            noAssociations = new SortedDictionary(commentManager.NoAssociations);
+            foreach (var c in noAssociations)
+            {
+                CSVOut.AppendLine(c.key + ";" + c.value);
+            }
+            CSVOut.AppendLine();
+            
             // Footer
-            time.Stop();
             CSVOut.AppendLine();
             CSVOut.AppendLine();
-            CSVOut.AppendLineFormat("Total Runtime; {0}ms", time.Elapsed);
             CSVOut.AppendLineFormat("Checksum;; {0}", System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(CSVOut.ToString())));
+            time.Stop();
+            CSVOut.AppendLineFormat("Total Runtime; {0}ms", time.Elapsed);
 
             if((bool) !FileOutType_Toggle.IsChecked)
             {
@@ -207,24 +260,16 @@ namespace BTRReportProcesser
                 Clipboard.SetContent(dp);
                 return;
             }
-
-
-            //StorageFolder outFolder;
-            //StorageFolder installedLocation = Package.Current.InstalledLocation;
-            //StorageFolder outFolder = await installedLocation.CreateFolderAsync("Datasets", CreationCollisionOption.OpenIfExists);
+            
+            // File name is the selected filters
             string fileName = "";
             fileName += "Report_";
             fileName += Country_ComboBox    .DefaultIfNull("All").Replace(",", "").Replace(" ", "") + "_";
             fileName += Practitoner_ComboBox.DefaultIfNull("All").Replace(",", "").Replace(" ", "") + "_";
             fileName += PNumber_ComboBox    .DefaultIfNull("All").Replace(",", "").Replace(" ", "") + "_";
             fileName += SiteId_ComboBox     .DefaultIfNull("All").Replace(",", "").Replace(" ", "") + "_";
-            fileName += DateTime.UtcNow.Hour + "h" + DateTime.UtcNow.Minute + "m";
+            fileName += DateTime.UtcNow.Hour + "h" + DateTime.UtcNow.Minute + "m" + DateTime.UtcNow.Second + "s";
             fileName += ".csv";
-
-            //var myFile = await outFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-            //StreamWriter streamWriter = new StreamWriter(await myFile.OpenStreamForWriteAsync());
-            //streamWriter.Write(CSVOut.ToString());
-            //streamWriter.Close();
 
             await fs.WriteFile(
                 fileName,
@@ -233,6 +278,15 @@ namespace BTRReportProcesser
                 OUT_FOLDER
             );
 
+            try
+            {
+                // Set last file                                                           if it wasnt obvious
+                await dataset.orignalFile.CopyAsync(await fs.RequestOrGetFolder(OUT_FOLDER), "_last.xlsx", NameCollisionOption.ReplaceExisting);
+            }
+            catch(Exception ex)
+            {
+                var _ = ex.Source;
+            }
 
         }
 
@@ -254,13 +308,11 @@ namespace BTRReportProcesser
             if ((bool) (sender as AppBarToggleButton).IsChecked)
             {
                 Toggle_Text.Text = "Exporting to New File";
-                FileOutType_Toggle.Label = "Exporting";
                 FileOutType_Toggle.Icon = new SymbolIcon(Symbol.OpenFile);
                 return;
             }
 
             Toggle_Text.Text = "Copying to Clipboard";
-            FileOutType_Toggle.Label = "Copying";
             FileOutType_Toggle.Icon = new SymbolIcon(Symbol.Copy);
 
         }
@@ -268,8 +320,14 @@ namespace BTRReportProcesser
         private async void FileOutPath_DoubleTapped(object sender, RoutedEventArgs e)
         {
             FileOutPath.PlaceholderText = "";
-            FileOutPath.PlaceholderText = (await fs.RequestFolderAccess(OUT_FOLDER, FutureItemListOptions.ReplaceFutureItemIfExists)).Path;
+            FileOutPath.PlaceholderText = (await fs.RequestOrGetFolder(OUT_FOLDER, FutureItemListOptions.ReplaceFutureItemIfExists)).Path;
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage), e);
+        }
+
     }
 
 }

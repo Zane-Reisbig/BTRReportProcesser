@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BTRReportProcesser"
-    Width="800" Height="600"
+    Background="#232c34" Width="800" Height="600"
     >
 
     <Grid>
@@ -11,15 +11,22 @@
         <TextBlock TextWrapping="Wrap" Text="Drop an Excel File to Continue" FontSize="36" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,77,0,0" Height="68" Width="492"/>
 
         <Grid x:Name="DroppableGrid" AllowDrop="True" DragOver="Grid_DragOver" Drop="Grid_Drop" 
-              Background="LightBlue" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Height="131" Width="279">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Height="97">Drop anywhere in the blue area</TextBlock>
+              Background="#FF4F565D" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="9" Height="131" Width="279">
+            <TextBlock x:Name="GotFileConf" HorizontalAlignment="Center" VerticalAlignment="Center" Height="97">Waiting For File Drop...</TextBlock>
+            <TextBlock x:Name="FileName_TextBlock" HorizontalAlignment="Center" VerticalAlignment="Top" Height="97" Margin="0,56,0,0"></TextBlock>
         </Grid>
-        
-        <TextBlock x:Name="GotFileConf" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Margin="0,150,0,0"/>
 
-        <Button x:Name="ContinueButton" Content="Continue" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="63" Width="184" Click="ContinueButton_Click" Margin="0,0,0,68" IsEnabled="False"/>
+
+        <Button x:Name="ContinueButton" Content="Continue" VerticalAlignment="Bottom" Height="47" Width="137" Click="ContinueButton_Click" Margin="653,0,0,548" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="389,130,0,0" TextWrapping="Wrap" Text="↓" VerticalAlignment="Top" Height="60" Width="81" FontSize="48"/>
-        <CheckBox Content="Use Last Document" Margin="0,552,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" HorizontalAlignment="Center"/>
+        <CheckBox x:Name="LastDocument_Check" Content="Use Last Document" Margin="469,25,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <CheckBox x:Name="OpenFormatWizard_Check" Content="Open In Format Wizard" Margin="469,-1,0,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="InfoButton" Content="¿Info?" Margin="10,10,0,0" VerticalAlignment="Top" Click="InfoButton_Click" FocusVisualPrimaryBrush="#66000000" Foreground="Black"/>
+        <TextBlock x:Name="Info_TextBlock" HorizontalAlignment="Left" Margin="185,403,0,0" TextWrapping="Wrap"
+        Text="Expected Excel File Layout:&#10; - Header Row: 11 (content of table starts on 12)&#10; - Header Row Names (EXACT):&#10;&#160;&#160;Country | PI_NAME | Subject Number | Site Number &#160;&#160;Overread Selection Reason&#10;" 
+        VerticalAlignment="Top" Height="183" Width="452" FontSize="18" Visibility="Collapsed"/>
+        <Button x:Name="File_Picker_Button" Content="..." Margin="510,334,0,0" VerticalAlignment="Top" CornerRadius="9,9,9,9" Canvas.ZIndex="99" Click="File_Picker_Button_Click"/>
 
 
 

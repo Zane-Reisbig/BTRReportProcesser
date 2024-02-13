@@ -18,6 +18,3 @@ if (Test-Path $userFolder -PathType Container) {
 } else {
     Write-Host "Source folder '$userFolder' does not exist."
 }
-
-Write-Host "Press Enter to continue..."
-Read-Host

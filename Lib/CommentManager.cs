@@ -9,6 +9,7 @@ namespace BTRReportProcesser.Lib
         List<Comment> processedComments;
         public Dictionary<string, int> CommentCounts;
         public Dictionary<string, int> MappedComments;
+        public Dictionary<string, int> NoAssociations;
         Dictionary<string, string> LookupTable;
         public CommentManager(Dictionary<string, string> associationsTable, List<string> comments)
         {
@@ -18,6 +19,7 @@ namespace BTRReportProcesser.Lib
             LookupTable = associationsTable;
             MappedComments = new Dictionary<string, int>();
             CommentCounts = new Dictionary<string, int>();
+            NoAssociations = new Dictionary<string, int>();
 
 
             MapAndCountComments();
@@ -54,10 +56,11 @@ namespace BTRReportProcesser.Lib
                 if (c is null) continue;
                 if (c == "")   continue;
                 if (c == "\"") continue;
+
                 if (!LookupTable.ContainsKey(c))
                 {
-
-                    Console.WriteLine("Unknown: {0}", c);
+                    SetDefaultDoesntExist(c, this.NoAssociations);
+                    continue;
                 }
 
                 SetDefaultDoesntExist(c, this.CommentCounts);
@@ -119,14 +122,14 @@ namespace BTRReportProcesser.Lib
                     continue;
                 }
 
-                if (!CommentLookupTable.Table.ContainsKey(item))
+                if (CommentLookupTable.Table.ContainsKey(item))
                 {
-                    hold = item;
-                    isHold = true;
+                    newComments.Add(item);
                     continue;
                 }
 
-                newComments.Add(item);
+                hold = item;
+                isHold = true;
             };
 
             SplitComments = newComments;

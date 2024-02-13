@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="BTRReportProcesser.Pages.FormatWizard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BTRReportProcesser.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="#232c34" Width="800" Height="600">
+    <Grid>
+
+        <Button x:Name="ContinueButton" Content="Continue" Margin="683,10,0,0" VerticalAlignment="Top" Height="38" Width="107" IsEnabled="False" Click="ContinueButton_Click"/>
+        <Button x:Name="BackButton" Content="Back" Margin="10,10,0,0" VerticalAlignment="Top" Height="38" Width="107" Click="BackButton_Click"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="63" Margin="20,288,0,0" Stroke="#FF22521E" VerticalAlignment="Top" Width="677" StrokeThickness="3"/>
+        <Grid x:Name="ExcelPreview" Margin="28,296,95,35">
+
+        </Grid>
+
+        <TextBlock HorizontalAlignment="Left" Margin="13,147,0,0" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="2,167,0,403" TextWrapping="Wrap" Text="" Height="30" Width="150" x:Name="Country_Preview" Tag="true" IsReadOnly="True"/>
+        <Button x:Name="CountryLock" Content="Lock" Margin="8,197,0,0" VerticalAlignment="Top" Tag="Country_Preview" Click="Lock_Click"/>
+        <RadioButton Tag="Country_Preview" x:Name="CountryPreview_Radio" Margin="66,141,0,0" VerticalAlignment="Top" Width="147" GroupName="Filters" FocusVisualPrimaryBrush="White" FontSize="10" ToolTipService.ToolTip="Expand View"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="168,148,0,0" TextWrapping="Wrap" Text="Site" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="157,167,0,403" TextWrapping="Wrap" Text="" Height="30" Width="155" x:Name="Site_Preview" Tag="true" IsReadOnly="True"/>
+        <Button x:Name="SiteLock" Content="Lock" Margin="165,197,0,0" VerticalAlignment="Top" Tag="Site_Preview" Click="Lock_Click"/>
+        <RadioButton Tag="Site_Preview" x:Name="SitePreview_Radio" Margin="195,141,0,0" VerticalAlignment="Top" Width="90" GroupName="Filters" ToolTipService.ToolTip="Expand View"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="324,148,0,0" TextWrapping="Wrap" Text="PI_Name" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="317,167,0,403" TextWrapping="Wrap" Text="" Height="30" Width="157" x:Name="PI_Preview" Tag="true" IsReadOnly="True"/>
+        <Button x:Name="PILock" Content="Lock" Margin="324,197,0,0" VerticalAlignment="Top" Tag="PI_Preview" Click="Lock_Click"/>
+        <RadioButton Tag="PI_Preview" x:Name="PIPreview_Radio" Margin="382,141,0,0" VerticalAlignment="Top" Width="90" GroupName="Filters" ToolTipService.ToolTip="Expand View"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="488,148,0,0" TextWrapping="Wrap" Text="Subject" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="479,167,0,403" TextWrapping="Wrap" Text="" Height="30" Width="144" x:Name="Sub_Preview" Tag="true" IsReadOnly="True"/>
+        <Button x:Name="SubjectLock" Content="Lock" Margin="488,197,0,0" VerticalAlignment="Top" Tag="Sub_Preview" Click="Lock_Click"/>
+        <RadioButton Tag="Sub_Preview" x:Name="SubjectExpand_Radio" Margin="538,141,0,0" VerticalAlignment="Top" Width="90" GroupName="Filters" ToolTipService.ToolTip="Expand View"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="635,111,0,0" TextWrapping="Wrap" Text="Overread Selection Reason" VerticalAlignment="Top" Height="68" Width="69"/>
+        <TextBox HorizontalAlignment="Left" Margin="628,167,0,403" TextWrapping="Wrap" Text="" Height="30" Width="157" x:Name="Comment_Preview" Tag="true" IsReadOnly="True"/>
+        <Button x:Name="CommentLock" Content="Lock" Margin="637,197,0,0" VerticalAlignment="Top" Tag="Comment_Preview" Click="Lock_Click"/>
+        <RadioButton Tag="Comment_Preview" x:Name="CommentExpand_Radio" Margin="696,141,0,0" VerticalAlignment="Top" Width="90" Click="Expand_Clicked" IsChecked="True" GroupName="Filters"/>
+
+        <Button x:Name="PanLeft" Content="&lt;" Margin="713,364,0,0" VerticalAlignment="Top" Width="36" Height="57" FontSize="22" Click="PanLeft_Click"/>
+        <Button Content="&gt;&gt;" Margin="751,337,0,0" VerticalAlignment="Top" Height="25" Width="37" FontSize="12" Click="PanRightEnd_Click"/>
+        <Button x:Name="PanRight" Content="&gt;" Margin="751,364,0,0" VerticalAlignment="Top" Width="37" Height="57" FontSize="22" Click="PanRight_Click"/>
+        <Button Content="&lt;&lt;" Margin="713,337,0,0" VerticalAlignment="Top" Height="25" Width="36" FontSize="12" Click="PanLeftEnd_Click"/>
+
+        <TextBox x:Name="SelectedRow_TextBox" HorizontalAlignment="Left" Margin="717,272,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="63" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="712,304,0,0" TextWrapping="Wrap" Text="Header Row" VerticalAlignment="Top"/>
+
+        <Button x:Name="ScrollUp" Content="↑" Margin="744,423,0,0" Width="44" Height="53" VerticalAlignment="Top" FontSize="36" Click="ScrollUp_Click"/>
+        <Button x:Name="MassScrollUp_Button" Content="↑&#10;↑&#10;" Margin="713,423,0,0" VerticalAlignment="Top" Width="29" Height="53" Click="ScrollUpTop_Click"/>
+        <Button x:Name="ScrollDown" Content="↓" Margin="744,478,0,0" Width="44" Height="53" VerticalAlignment="Top" FontSize="36" Click="ScrollDown_Click"/>
+        <Button x:Name="MassScrollDown_Button" Content="↓&#10;↓&#10;" Margin="713,478,0,0" VerticalAlignment="Top" Width="29" Height="53" Click="ScrollDownTen_Click"/>
+
+        <TextBlock x:Name="ScrollDisabled_Text" HorizontalAlignment="Left" Margin="713,565,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.034,0.211" Width="78" FontSize="10" Height="25"/>
+        <TextBox x:Name="ExpandedView_TextBox" HorizontalAlignment="Center" Margin="0,83,0,0" TextWrapping="Wrap" Text="" PlaceholderText="Expanded View" VerticalAlignment="Top" Width="378"/>
+
+
+    </Grid>
+</Page>

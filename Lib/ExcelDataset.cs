@@ -12,22 +12,23 @@ namespace BTRReportProcesser.Lib
 {
     internal class ExcelDataset
     {
-        int HEADER_ROW = 10;
+        int HEADER_ROW;
         public DataSet parsedFile;
         public EnumerableRowCollection<DataRow> EnumerableDataLines;
+        public StorageFile orignalFile;
 
-        private ExcelDataset() { parsedFile = null; EnumerableDataLines = null; }
+        private ExcelDataset(int headerRow) { HEADER_ROW = headerRow; parsedFile = null; EnumerableDataLines = null; }
 
         private async Task<ExcelDataset> Init(StorageFile target)
         {
-            var c_stream = await target.OpenStreamForReadAsync();
+            orignalFile = target;
 
-            using (c_stream)
+            using (var c_stream = await target.OpenStreamForReadAsync())
             {
                 // Auto-detect format, supports:
                 //  - Binary Excel files (2.0-2003 format; *.xls)
                 //  - OpenXml Excel files (2007 format; *.xlsx, *.xlsb)
-                using (var reader = ExcelReaderFactory.CreateOpenXmlReader(c_stream))
+                using (var reader = ExcelReaderFactory.CreateReader(c_stream))
                 {
                     this.parsedFile = reader.AsDataSet(new ExcelDataSetConfiguration()
                     {
@@ -47,14 +48,16 @@ namespace BTRReportProcesser.Lib
                     });
 
                 }
+
+                c_stream.Close();
             }
 
             EnumerableDataLines = parsedFile.Tables[0].AsEnumerable();
             return this;
         }
 
-        public static Task<ExcelDataset> CreateAsync(StorageFile target) {
-            var ret = new ExcelDataset();
+        public static Task<ExcelDataset> CreateAsync(StorageFile target, int headerRow) {
+            var ret = new ExcelDataset(headerRow);
             return ret.Init(target);
         }
 

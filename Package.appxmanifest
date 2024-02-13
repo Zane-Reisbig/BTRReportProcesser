@@ -11,7 +11,7 @@
   IgnorableNamespaces="uap mp iot uap3 uap4 rescap">
 
   <Identity
-    Publisher="CN=zaned"
+    Publisher="CN=ReisbigLLC"
     Version="1.0.0.0"  Name="BTRReportProcesserPackage"/>
 
   <mp:PhoneIdentity PhoneProductId="9f07596b-b4bf-466d-8190-b6af44c3c7b8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>

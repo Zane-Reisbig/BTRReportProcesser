@@ -20,7 +20,8 @@ namespace BTRReportProcesser.Lib
 
     internal class FileSystem
     {
-        FolderPicker folderPicker;
+        FolderPicker FolderPicker;
+        FileOpenPicker FileOpenPicker;
         UserInformation user;
 
         private async Task<FileSystem> Init()
@@ -32,7 +33,8 @@ namespace BTRReportProcesser.Lib
         private FileSystem()
         {
             user = new UserInformation();
-            folderPicker = new Windows.Storage.Pickers.FolderPicker();
+            FolderPicker = new FolderPicker();
+            FileOpenPicker = new FileOpenPicker();
         }
 
         public static async Task<FileSystem> CreateAsync()
@@ -42,7 +44,7 @@ namespace BTRReportProcesser.Lib
 
         }
 
-        public async Task<StorageFolder> RequestFolderAccess(string futureListSaveName, FutureItemListOptions option = FutureItemListOptions.ReturnFutureItemIfExists)
+        public async Task<StorageFolder> RequestOrGetFolder(string futureListSaveName, FutureItemListOptions option = FutureItemListOptions.ReturnFutureItemIfExists)
         {
             if (StorageApplicationPermissions.FutureAccessList.ContainsItem(futureListSaveName) && option == FutureItemListOptions.ReturnFutureItemIfExists)
             {
@@ -50,11 +52,11 @@ namespace BTRReportProcesser.Lib
                 return ret;
             }
 
-            folderPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop;
-            folderPicker.CommitButtonText = "Save Location";
-            folderPicker.FileTypeFilter.Add("*");
+            FolderPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop;
+            FolderPicker.CommitButtonText = "Save Location";
+            FolderPicker.FileTypeFilter.Add("*");
 
-            var outFolder = await folderPicker.PickSingleFolderAsync();
+            var outFolder = await FolderPicker.PickSingleFolderAsync();
             if (outFolder != null)
             {
                 // Application now has read/write access to all contents in the picked folder
@@ -66,6 +68,27 @@ namespace BTRReportProcesser.Lib
 
             return null;
 
+        }
+        
+        public bool HaveAccessTo(string daPath)
+        {
+
+            if (StorageApplicationPermissions.FutureAccessList.ContainsItem(daPath)) return true;
+
+            return false;
+
+        }
+
+        public async Task<StorageFile> GetSingleFile(PickerLocationId start, string[] files) { return await GetSingleFile(start, files.ToList()); }
+        public async Task<StorageFile> GetSingleFile(PickerLocationId start, List<string> files)
+        {
+            FileOpenPicker.SuggestedStartLocation = start;
+            foreach(string fileName in files)
+            {
+                FileOpenPicker.FileTypeFilter.Add(fileName);
+            }
+
+            return await FileOpenPicker.PickSingleFileAsync(); 
         }
 
         public async Task<bool> WriteFile(string fileName, CreationCollisionOption option, string content, string futureAccessLabel, StorageFolder tryTargetContainer = null)
@@ -98,7 +121,7 @@ namespace BTRReportProcesser.Lib
                 }
             }
 
-            StorageFolder selected = (StorageFolder) await RequestFolderAccess(futureAccessLabel);
+            StorageFolder selected = (StorageFolder) await RequestOrGetFolder(futureAccessLabel);
             if (selected == null) return false;
 
             outFile = await selected.CreateFileAsync(fileName, option);

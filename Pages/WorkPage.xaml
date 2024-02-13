@@ -8,7 +8,8 @@
     mc:Ignorable="d" Background="#232c34" Width="800" Height="600">
     <Grid>
 
-        <Button x:Name="Refresh_Controls_Button" Content="Refresh Stuck Values" Margin="523,70,0,0" VerticalAlignment="Top" Width="157" Click="Refresh_Controls_Button_Click"/>
+        <Button x:Name="Refresh_Controls_Button" Content="Refresh" Margin="10,53,0,0" VerticalAlignment="Top" Width="107" Click="Refresh_Controls_Button_Click" Height="38"/>
+        <Button x:Name="BackButton" Content="Back" Margin="10,10,0,0" VerticalAlignment="Top" Height="38" Width="107" Click="BackButton_Click"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="145,140,0,0" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top"/>
         <ComboBox x:Name="Country_ComboBox" Margin="140,160,0,0" Width="120" PointerExited="ComboSelectionChanged_ComboBox"/>
@@ -28,13 +29,13 @@
 
 
 
-        <Button x:Name="ExportData_Button" Content="Export Data" VerticalAlignment="Top" Width="175" HorizontalAlignment="Center" Margin="0,369,0,0" Click="ExportData_Button_Click"/>
-        <CheckBox x:Name="ProcessComments_Toggle" Content="Process Comments" Margin="505,369,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <Button x:Name="ExportData_Button" Content="Export Data" VerticalAlignment="Top" Width="107" Margin="683,10,0,0" Click="ExportData_Button_Click" Height="38" Background="#33186320"/>
+        <CheckBox x:Name="ProcessComments_Toggle" Content="Process Comments" Margin="411,378,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <TextBlock HorizontalAlignment="Left" Height="0" Margin="115,190,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="0"/>
 
-        <Grid x:Name="Fade_Grid" PointerExited="FileOutType_Toggle_PointerExited" PointerEntered="FileOutType_Toggle_PointerEntered" FocusVisualPrimaryBrush="#99FFFFFF" Margin="301,419,305,97">
-            <AppBarToggleButton x:Name="FileOutType_Toggle" Icon="OpenFile" Label="Exporting" Width="162" HorizontalAlignment="Center" IsChecked="True" Click="FileOutType_Toggle_Click" ToolTipService.ToolTip="Change Mode"/>
-            <TextBlock x:Name="Toggle_Text" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Exporting to New File" VerticalAlignment="Top" Margin="0,61,0,0"/>
+        <Grid x:Name="Fade_Grid" PointerExited="FileOutType_Toggle_PointerExited" PointerEntered="FileOutType_Toggle_PointerEntered" FocusVisualPrimaryBrush="#99FFFFFF" Margin="211,368,395,148">
+            <AppBarToggleButton x:Name="FileOutType_Toggle" Icon="OpenFile" Width="162" HorizontalAlignment="Center" IsChecked="True" ToolTipService.ToolTip="Change Mode" Margin="0,5,0,0" Height="37" Click="FileOutType_Toggle_Click"/>
+            <TextBlock x:Name="Toggle_Text" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Exporting to New File" VerticalAlignment="Top" Margin="0,43,0,0"/>
 
             <Grid.Resources>
                 <Storyboard x:Name="EnterStoryboard">

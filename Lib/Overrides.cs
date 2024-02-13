@@ -11,9 +11,14 @@ namespace BTRReportProcesser.Lib
     {
         public static string DefaultIfNull(this ComboBox s, string defaultVal)
         {
-            if (s.SelectedValue is null) return defaultVal;
+            return s.SelectedValue is null ? defaultVal : s.SelectedValue.ToString();
+        }
 
-            return s.SelectedValue.ToString();
+        public static bool GetTagAsBoolean(this Control tb)
+        {
+            if (tb.Tag is null) return false;
+
+            return Boolean.Parse(tb.Tag as String);
         }
     }
 }

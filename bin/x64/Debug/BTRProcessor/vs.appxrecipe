@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-7MPAFQ2</Machine>
+    <WindowsUser>zaned</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|x64</SolutionConfiguration>
+    <PackageArchitecture>x64</PackageArchitecture>
+    <PackageIdentityName>9f07596b-b4bf-466d-8190-b6af44c3c7b8</PackageIdentityName>
+    <PackageIdentityPublisher>CN=zaned</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\obj\x64\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\BTRProcessor</LayoutDir>
+    <RegisteredManifestChecksum>57555D30DAD45D2A3F9073F490A2EA63F8E84A1D67EBFEAA726F879BBD1AD4A1</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>BTRReportProcesserPackage_0.5.0.0_x64__bq826ezyygmw6</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>BTRReportProcesserPackage_bq826ezyygmw6!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>BTRReportProcesserPackage</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=zaned</RegisteredPackagePublisher>
+    <RegisteredVersion>0.5.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\Core\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-02-13T07:15:33.322</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\BTRReportProcesser.exe">
+      <PackagePath>entrypoint\BTRReportProcesser.exe</PackagePath>
+      <Modified>2024-02-13T07:15:32.646</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\exceldatareader\3.6.0\lib\netstandard2.0\ExcelDataReader.dll">
+      <PackagePath>ExcelDataReader.dll</PackagePath>
+      <Modified>2019-05-02T04:39:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\exceldatareader.dataset\3.6.0\lib\netstandard2.0\ExcelDataReader.DataSet.dll">
+      <PackagePath>ExcelDataReader.DataSet.dll</PackagePath>
+      <Modified>2019-05-02T04:39:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.authentication\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.dll">
+      <PackagePath>Microsoft.AspNetCore.Authentication.dll</PackagePath>
+      <Modified>2018-11-12T17:39:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.authentication.abstractions\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll">
+      <PackagePath>Microsoft.AspNetCore.Authentication.Abstractions.dll</PackagePath>
+      <Modified>2018-11-12T17:29:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.authentication.core\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll">
+      <PackagePath>Microsoft.AspNetCore.Authentication.Core.dll</PackagePath>
+      <Modified>2018-11-12T17:29:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.cryptography.internal\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll">
+      <PackagePath>Microsoft.AspNetCore.Cryptography.Internal.dll</PackagePath>
+      <Modified>2018-11-12T17:32:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.dataprotection\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.dll">
+      <PackagePath>Microsoft.AspNetCore.DataProtection.dll</PackagePath>
+      <Modified>2018-11-12T17:32:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.dataprotection.abstractions\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll">
+      <PackagePath>Microsoft.AspNetCore.DataProtection.Abstractions.dll</PackagePath>
+      <Modified>2018-11-12T17:32:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.hosting.abstractions\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll">
+      <PackagePath>Microsoft.AspNetCore.Hosting.Abstractions.dll</PackagePath>
+      <Modified>2018-11-12T17:30:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.hosting.server.abstractions\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll">
+      <PackagePath>Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</PackagePath>
+      <Modified>2018-11-12T17:30:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.http\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll">
+      <PackagePath>Microsoft.AspNetCore.Http.dll</PackagePath>
+      <Modified>2018-11-12T17:29:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.http.abstractions\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll">
+      <PackagePath>Microsoft.AspNetCore.Http.Abstractions.dll</PackagePath>
+      <Modified>2018-11-12T17:29:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.http.extensions\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll">
+      <PackagePath>Microsoft.AspNetCore.Http.Extensions.dll</PackagePath>
+      <Modified>2018-11-12T17:29:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.http.features\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll">
+      <PackagePath>Microsoft.AspNetCore.Http.Features.dll</PackagePath>
+      <Modified>2018-11-12T17:28:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.aspnetcore.webutilities\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll">
+      <PackagePath>Microsoft.AspNetCore.WebUtilities.dll</PackagePath>
+      <Modified>2018-11-12T17:29:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.configuration.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
+      <Modified>2018-11-11T00:26:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.DependencyInjection.Abstractions.dll</PackagePath>
+      <Modified>2018-11-11T00:26:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.fileproviders.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
+      <Modified>2018-11-11T00:26:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.hosting.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Hosting.Abstractions.dll</PackagePath>
+      <Modified>2018-11-12T17:30:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.logging.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
+      <Modified>2018-11-11T00:26:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.objectpool\2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll">
+      <PackagePath>Microsoft.Extensions.ObjectPool.dll</PackagePath>
+      <Modified>2018-11-11T00:26:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.options\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll">
+      <PackagePath>Microsoft.Extensions.Options.dll</PackagePath>
+      <Modified>2018-11-11T00:26:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.primitives\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll">
+      <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
+      <Modified>2018-11-11T00:26:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.extensions.webencoders\2.2.0\lib\netstandard2.0\Microsoft.Extensions.WebEncoders.dll">
+      <PackagePath>Microsoft.Extensions.WebEncoders.dll</PackagePath>
+      <Modified>2018-11-12T17:28:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.net.http.headers\2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll">
+      <PackagePath>Microsoft.Net.Http.Headers.dll</PackagePath>
+      <Modified>2018-11-12T17:28:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\microsoft.win32.registry\4.5.0\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll">
+      <PackagePath>Microsoft.Win32.Registry.dll</PackagePath>
+      <Modified>2018-05-15T13:29:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.14\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
+      <PackagePath>System.Runtime.dll</PackagePath>
+      <Modified>2022-06-11T03:23:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\system.data.datasetextensions\4.5.0\lib\netstandard2.0\System.Data.DataSetExtensions.dll">
+      <PackagePath>System.Data.DataSetExtensions.dll</PackagePath>
+      <Modified>2018-05-15T13:29:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\system.security.cryptography.pkcs\4.5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.Pkcs.dll">
+      <PackagePath>System.Security.Cryptography.Pkcs.dll</PackagePath>
+      <Modified>2018-05-15T13:29:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\system.security.cryptography.xml\4.5.0\lib\netstandard2.0\System.Security.Cryptography.Xml.dll">
+      <PackagePath>System.Security.Cryptography.Xml.dll</PackagePath>
+      <Modified>2018-05-15T13:29:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\.nuget\packages\system.text.encodings.web\4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll">
+      <PackagePath>System.Text.Encodings.Web.dll</PackagePath>
+      <Modified>2018-05-15T13:29:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
+      <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
+      <Modified>2020-12-02T08:52:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2024-01-29T21:09:01.829</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2024-01-29T20:34:32.060</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-01-29T20:34:32.063</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-01-29T20:34:32.064</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-01-29T20:34:32.065</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-01-29T20:34:32.065</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-01-29T20:34:32.066</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-01-29T20:34:32.067</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\BTRReportProcesser.xr.xml">
+      <PackagePath>BTRReportProcesser.xr.xml</PackagePath>
+      <Modified>2024-02-09T04:01:26.204</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\Pages\App.xbf">
+      <PackagePath>Pages\App.xbf</PackagePath>
+      <Modified>2024-02-13T07:15:32.515</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\Pages\FormatWizard.xbf">
+      <PackagePath>Pages\FormatWizard.xbf</PackagePath>
+      <Modified>2024-02-13T07:15:32.511</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\Pages\MainPage.xbf">
+      <PackagePath>Pages\MainPage.xbf</PackagePath>
+      <Modified>2024-02-13T07:15:32.515</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\Pages\WorkPage.xbf">
+      <PackagePath>Pages\WorkPage.xbf</PackagePath>
+      <Modified>2024-02-13T07:15:32.515</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
+      <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+      <Modified>2020-12-02T06:52:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2024-02-13T04:21:19.431</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\zaned\Desktop\Non-Education\_Code\_C#\BTRViewer\BTRReportProcesser\bin\x64\Debug\Core\BTRReportProcesser.exe">
+      <PackagePath>BTRReportProcesser.exe</PackagePath>
+      <Modified>2024-02-13T07:15:33.316</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.31331.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.31331.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.31331.1</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.31327.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.31327.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.31327.1</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>ARM64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM64\Microsoft.VCLibs.ARM64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>
